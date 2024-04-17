@@ -81,11 +81,11 @@ foreach ($array as $ip => $y) {
     <p>> ping</p>
   </div>
     <div class="main">
-      <div class="ipbox" id="ip1">IP Address 1 (1.1.1.1): <span class="circle" id="circle1"></span></div>
+      <div class="ipbox" id="ip1">Area A Status: <span class="circle" id="circle1"></span></div>
       <br>
-      <div class="ipbox" id="ip2">IP Address 2 (1.0.0.1): <span class="circle" id="circle2"></span></div>
+      <div class="ipbox" id="ip2">Area B Status: <span class="circle" id="circle2"></span></div>
       <br>
-      <div class="ipbox" id="ip3">IP Address 3 (8.8.8.8): <span class="circle" id="circle3"></span></div>
+      <div class="ipbox" id="ip3">Area C Status: <span class="circle" id="circle3"></span></div>
   </div>
   <script type="text/javascript">
     if (<?php echo $array["1.1.1.1"]; ?>) {
