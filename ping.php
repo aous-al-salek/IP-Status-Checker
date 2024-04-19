@@ -12,6 +12,12 @@ foreach ($array as $ip => $y) {
     $array[$ip] = 0;
   }
 }
+$status = 0;
+try {
+    $response = get_headers('https://www.example.com');
+    $code = explode(" ", $response[0])[1];
+	if ($code == 200) { $status = 1; }
+} catch (Exception $ignored) { }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,6 +92,8 @@ foreach ($array as $ip => $y) {
       <div class="ipbox" id="ip2">Area B Status: <span class="circle" id="circle2"></span></div>
       <br>
       <div class="ipbox" id="ip3">Area C Status: <span class="circle" id="circle3"></span></div>
+	  <br>
+      <div class="ipbox" id="web4">Website Status: <span class="circle" id="circle4"></span></div>
   </div>
   <script type="text/javascript">
     if (<?php echo $array["1.1.1.1"]; ?>) {
@@ -108,6 +116,13 @@ foreach ($array as $ip => $y) {
     } else {
         document.getElementById('circle3').classList.add('red');
         document.getElementById('circle3').classList.remove('green');
+    }
+	if (<?php echo $status; ?>) {
+        document.getElementById('circle4').classList.add('green');
+        document.getElementById('circle4').classList.remove('red');
+    } else {
+        document.getElementById('circle4').classList.add('red');
+        document.getElementById('circle4').classList.remove('green');
     }
     setTimeout(function(){
       window.location.reload(1);
